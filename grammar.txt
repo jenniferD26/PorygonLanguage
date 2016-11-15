@@ -1,0 +1,22 @@
+<identifier>
+First character is letter everything after is a letter or a number
+
+<type>
+point or line
+
+<value>
+literal integer (0, 1, 2, ect.)
+
+Variable declarations:
+	<type = point> <identifier = name> : ( <value>, <value> )
+	<type = line> <identifier = name> : ( <value>, <value>, <value>, <value> )
+	<type = line> <identifier = name> : ( <type = point>, <type = point> )
+	
+print:
+	print ( <type> )
+	output point-> <identifier = name>: (<value>, <value>)
+	output line-> <identifier = name>: (<value>, <value>) and (<value>, <value>)
+	
+Distance:
+	distance ( <type = line> )
+	output -> <identifier = name> distance = <value>

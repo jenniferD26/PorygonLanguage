@@ -1,0 +1,3 @@
+point pt1 : (2, 3)
+
+print( pt1 )
