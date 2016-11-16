@@ -42,6 +42,12 @@ public class PointBlock extends Block {
 	public String getType(){
 		return type;
 	}
+	public Object getXValue(){
+		return xValue;
+	}
+	public Object getYValue(){
+		return yValue;
+	}
 	
 	public String toString() {
 		return new String (name + " = ("+xValue+" , "+yValue+")");

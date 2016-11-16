@@ -1,6 +1,4 @@
 package porygon.Default;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -12,6 +10,8 @@ import porygon.Tokenizer.*;
 public class RunTime {
 	static Map<String, PointBlock> points = new HashMap<String, PointBlock>();
 	static Map<String, LineBlock> lines = new HashMap<String, LineBlock>();
+	static Map<String, TriangleBlock> triangles = new HashMap<String, TriangleBlock>();
+	static Map<String, QuadrilateralBlock> quadrilateral = new HashMap<String, QuadrilateralBlock>();
 	
 	public static int RunCode(String code) {
 		
@@ -22,7 +22,10 @@ public class RunTime {
 		Parser<?>[] parsers = new Parser<?>[] { 
 			new PointParser(), 
 			new PrintParser(), 
-			new LineParser()
+			new LineParser(),
+			new DistanceParser(),
+			new TriangleParser(),
+			new QuadrilateralParser(),
 			};
 		
 		Block block = null;
@@ -41,6 +44,23 @@ public class RunTime {
 					else if(newBlock instanceof LineBlock){
 						lines.put(((LineBlock) newBlock).getName(), (LineBlock) newBlock);
 					}
+					else if(newBlock instanceof TriangleBlock){
+						triangles.put(((TriangleBlock) newBlock).getName(), (TriangleBlock) newBlock);
+					}
+					else if(newBlock instanceof QuadrilateralBlock){
+						quadrilateral.put(((QuadrilateralBlock) newBlock).getName(), (QuadrilateralBlock) newBlock);
+					}
+					else if(newBlock instanceof DistanceBlock){
+						DistanceBlock temp=(DistanceBlock)newBlock;
+						Object var = getVariable(temp.getLineName(),"line");
+						if(var!=null){
+							System.out.println("distance "+temp.getLineName()+" = "+temp.getDistance());
+						}
+						else{
+							System.out.println("Line "+temp.getLineName()+" does not exist");
+						}
+						
+					}
 					else if(newBlock instanceof Print){
 						
 						// print all of the variables
@@ -55,6 +75,15 @@ public class RunTime {
 							else if(lines.get(var) != null && lines.get(var).getType().equals("line")){
 								if(lines.get(var) != null){
 									System.out.println(lines.get(var));
+								}
+								else{
+									System.out.println("Variable "+var+" does not exist");
+								}
+							}
+							// searches through the triangles list
+							else if(triangles.get(var) != null && triangles.get(var).getType().equals("triangle")){
+								if(triangles.get(var) != null){
+									System.out.println(triangles.get(var));
 								}
 								else{
 									System.out.println("Variable "+var+" does not exist");
@@ -94,6 +123,12 @@ public class RunTime {
 		}
 		else if (type.equals("line")){
 			return lines.get(name);
+		}
+		else if(type.equals("quadrilateral")){
+			return quadrilateral.get(name);
+		}
+		else if (type.equals("triangle")){
+			return triangles.get(name);
 		}
 		
 		return null;
