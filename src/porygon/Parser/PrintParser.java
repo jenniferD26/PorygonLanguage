@@ -13,7 +13,7 @@ import porygon.Tokenizer.Tokenizer;
 public class PrintParser extends Parser<Block>{
 	//Override
 	public boolean shouldParse(String line){
-		return line.matches("print[\\s]*\\(([\\s]*[a-zA-Z][a-zA-Z0-9]+[\\s]*[,]?[\\s]*)*\\)");
+		return line.matches("print[\\s]*\\(([\\s]*[a-zA-Z][a-zA-Z0-9]+[\\s]*[,][\\s]*)*[a-zA-Z][a-zA-Z0-9]+[\\s]*\\)");
 	}
 	
 	//Override

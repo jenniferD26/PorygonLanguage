@@ -10,7 +10,7 @@ import porygon.Tokenizer.Tokenizer;
 public class PointParser extends Parser<Block> {
 	@Override
 	public boolean shouldParse(String line) {
-		return line.matches("point[\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*:[\\s]?\\(([\\s]*[-]?[0-9]*[\\s]*[,]?[\\s]*){2}\\)");
+		return line.matches("point[\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*:[\\s]?\\([\\s]*[-]?[0-9]+[\\s]*[,][\\s]*[-]?[0-9]+[\\s]*\\)");
 	}
 
 	@Override

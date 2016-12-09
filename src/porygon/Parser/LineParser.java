@@ -14,11 +14,11 @@ public class LineParser extends Parser<Block> {
 	
 	@Override
 	public boolean shouldParse(String line) {
-		if(line.matches("line[\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*:[\\s]?\\(([\\s]*[-]?[0-9]*[\\s]*[,]?[\\s]*){4}\\)"))
+		if(line.matches("line[\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*:[\\s]?\\(([\\s]*[-]?[0-9]+[\\s]*[,]{1}[\\s]*){3}[-]?[0-9]+[\\s]*\\)"))
 		{
 			return true;
 		}
-		else if (line.matches("line[\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*:[\\s]?\\(([\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*[,]?[\\s]*){2}\\)"))
+		else if (line.matches("line[\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*:[\\s]?\\([\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*[,][\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*\\)"))
 		{
 			pointsFlag = true;
 			return true;

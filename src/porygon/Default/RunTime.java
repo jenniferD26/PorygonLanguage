@@ -89,6 +89,15 @@ public class RunTime {
 									System.out.println("Variable "+var+" does not exist");
 								}
 							}
+							// searches through the quadrilaterals list
+							else if(quadrilateral.get(var) != null && quadrilateral.get(var).getType().equals("quadrilateral")){
+								if(quadrilateral.get(var) != null){
+									System.out.println(quadrilateral.get(var));
+								}
+								else{
+									System.out.println("Variable "+var+" does not exist");
+								}
+							}
 							else{
 								System.out.println("Variable "+var+" does not exist");
 							}
