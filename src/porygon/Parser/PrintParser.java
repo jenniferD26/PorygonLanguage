@@ -4,16 +4,13 @@ import java.util.ArrayList;
 
 import porygon.Block.Block;
 import porygon.Block.Print;
-import porygon.Default.BuiltInType;
-import porygon.Default.Value;
-import porygon.Default.Variable;
 import porygon.Tokenizer.Token;
 import porygon.Tokenizer.Tokenizer;
 
 public class PrintParser extends Parser<Block>{
 	//Override
 	public boolean shouldParse(String line){
-		return line.matches("print[\\s]*\\(([\\s]*[a-zA-Z][a-zA-Z0-9]+[\\s]*[,][\\s]*)*[a-zA-Z][a-zA-Z0-9]+[\\s]*\\)");
+		return line.matches("print[\\s]*\\(([\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*[,]?[\\s]*)*\\)");
 	}
 	
 	//Override

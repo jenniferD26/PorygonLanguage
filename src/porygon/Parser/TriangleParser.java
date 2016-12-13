@@ -13,11 +13,11 @@ public boolean pointsFlag = false;
 	
 	@Override
 	public boolean shouldParse(String line) {
-		if(line.matches("triangle[\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*:[\\s]?\\(([\\s]*[-]?[0-9]+[\\s]*[,][\\s]*){5}[-]?[0-9]+[\\s]*\\)"))
+		if(line.matches("triangle[\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*:[\\s]*\\(([\\s]*[-]?[0-9]+[\\s]*[,][\\s]*){5}[-]?[0-9]+[\\s]*\\)"))
 		{
 			return true;
 		}
-		else if (line.matches("triangle[\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*:[\\s]?\\(([\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*[,][\\s]*){2}[a-zA-Z]+[a-zA-Z0-9]*[\\s]*\\)"))
+		else if (line.matches("triangle[\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*:[\\s]*\\(([\\s]*[a-zA-Z]+[a-zA-Z0-9]*[\\s]*[,][\\s]*){2}[a-zA-Z]+[a-zA-Z0-9]*[\\s]*\\)"))
 		{
 			pointsFlag = true;
 			return true;
